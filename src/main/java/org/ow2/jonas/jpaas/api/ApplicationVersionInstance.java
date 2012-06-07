@@ -26,8 +26,8 @@
 package org.ow2.jonas.jpaas.api;
 
 import java.io.Serializable;
-import java.lang.String;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationVersionInstance implements Serializable {
@@ -39,7 +39,7 @@ public class ApplicationVersionInstance implements Serializable {
   private String instanceName;
   private String requirements;
   private String capabilities;
-  private List<Deployable> sortedDeployablesList;
+  private ArrayList<Deployable> sortedDeployablesList;
   private Environment targetEnvId;
   private String deployableTopologyMapping;
   private enum stateApp {
@@ -101,7 +101,7 @@ public class ApplicationVersionInstance implements Serializable {
     return sortedDeployablesList;
   }
 
-  public void setSortedDeployablesList(List<Deployable> sortedDeployablesList) {
+  public void setSortedDeployablesList(ArrayList<Deployable> sortedDeployablesList) {
     this.sortedDeployablesList = sortedDeployablesList;
   }
 

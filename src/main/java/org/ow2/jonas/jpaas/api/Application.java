@@ -26,6 +26,7 @@
 package org.ow2.jonas.jpaas.api;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Application implements Serializable {
 
@@ -35,6 +36,7 @@ public class Application implements Serializable {
   private String description;
   private String requirements;
   private String capabilities;
+  private ArrayList<ApplicationVersion> listApplicationVersion;
 
   public String getAppId() {
     return appId;
@@ -74,5 +76,13 @@ public class Application implements Serializable {
 
   public void setCapabilities(String capabilities) {
     this.capabilities = capabilities;
+  }
+
+  public ArrayList<ApplicationVersion> getListApplicationVersion() {
+    return listApplicationVersion;
+  }
+
+  public void setListApplicationVersion(ArrayList<ApplicationVersion> listApplicationVersion) {
+    this.listApplicationVersion = listApplicationVersion;
   }
 }
