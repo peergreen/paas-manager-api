@@ -26,6 +26,7 @@
 package org.ow2.jonas.jpaas.api;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationVersion implements Serializable {
@@ -36,7 +37,8 @@ public class ApplicationVersion implements Serializable {
   private String versionLabel;
   private String requirements;
   private String capabilities;
-  private List<Deployable> sortedDeployablesList;
+  private ArrayList<Deployable> sortedDeployablesList;
+  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
 
   public String getAppId() {
     return appId;
@@ -82,7 +84,15 @@ public class ApplicationVersion implements Serializable {
     return sortedDeployablesList;
   }
 
-  public void setSortedDeployablesList(List<Deployable> sortedDeployablesList) {
+  public void setSortedDeployablesList(ArrayList<Deployable> sortedDeployablesList) {
     this.sortedDeployablesList = sortedDeployablesList;
+  }
+
+  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
+    return listApplicationVersionInstance;
+  }
+
+  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
+    this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
 }

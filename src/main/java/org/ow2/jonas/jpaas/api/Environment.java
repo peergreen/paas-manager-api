@@ -26,6 +26,7 @@
 package org.ow2.jonas.jpaas.api;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Environment implements Serializable {
 
@@ -34,6 +35,7 @@ public class Environment implements Serializable {
   private String envId;
   private String envName;
   private String envDesc;
+  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
 
   private enum stateEnv {
 		running, stop, start;
@@ -70,5 +72,13 @@ public class Environment implements Serializable {
 
   public void setState(stateEnv state) {
     this.state = state;
+  }
+
+  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
+    return listApplicationVersionInstance;
+  }
+
+  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
+    this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
 }
