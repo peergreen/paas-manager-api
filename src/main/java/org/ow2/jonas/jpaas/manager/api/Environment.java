@@ -23,7 +23,7 @@
  * --------------------------------------------------------------------------
  */
 
-package org.ow2.jonas.jpaas.api;
+package org.ow2.jonas.jpaas.manager.api;
 
 import java.io.Serializable;
 import java.util.ArrayList;

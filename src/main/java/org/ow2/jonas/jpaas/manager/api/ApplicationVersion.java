@@ -23,38 +23,29 @@
  * --------------------------------------------------------------------------
  */
 
-package org.ow2.jonas.jpaas.api;
+package org.ow2.jonas.jpaas.manager.api;
 
 import java.io.Serializable;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicationVersionInstance implements Serializable {
+public class ApplicationVersion implements Serializable {
 
-  private static final long serialVersionUID = -2161092164213063410L;
+  private static final long serialVersionUID = 2013336660087003313L;
   private String appId;
   private String versionId;
-  private String instanceId;
-  private String instanceName;
+  private String versionLabel;
   private String requirements;
   private String capabilities;
   private ArrayList<Deployable> sortedDeployablesList;
-  private Environment targetEnvId;
-  private String deployableTopologyMapping;
-  private enum stateApp {
-		stop, start;
-	};
-  private stateApp state;
-  private List<URI> urlList;
+  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
 
-
-  public List<URI> getUrlList() {
-    return urlList;
+  public String getAppId() {
+    return appId;
   }
 
-  public void setUrlList(List<URI> urlList) {
-    this.urlList = urlList;
+  public void setAppId(String appId) {
+    this.appId = appId;
   }
 
   public String getVersionId() {
@@ -65,20 +56,12 @@ public class ApplicationVersionInstance implements Serializable {
     this.versionId = versionId;
   }
 
-  public String getInstanceId() {
-    return instanceId;
+  public String getVersionLabel() {
+    return versionLabel;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public String getInstanceName() {
-    return instanceName;
-  }
-
-  public void setInstanceName(String instanceName) {
-    this.instanceName = instanceName;
+  public void setVersionLabel(String versionLabel) {
+    this.versionLabel = versionLabel;
   }
 
   public String getRequirements() {
@@ -105,35 +88,11 @@ public class ApplicationVersionInstance implements Serializable {
     this.sortedDeployablesList = sortedDeployablesList;
   }
 
-  public Environment getTargetEnvId() {
-    return targetEnvId;
+  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
+    return listApplicationVersionInstance;
   }
 
-  public void setTargetEnvId(Environment targetEnvId) {
-    this.targetEnvId = targetEnvId;
-  }
-
-  public String getDeployableTopologyMapping() {
-    return deployableTopologyMapping;
-  }
-
-  public void setDeployableTopologyMapping(String deployableTopologyMapping) {
-    this.deployableTopologyMapping = deployableTopologyMapping;
-  }
-
-  public stateApp getState() {
-    return state;
-  }
-
-  public void setState(stateApp state) {
-    this.state = state;
-  }
-
-  public String getAppId() {
-    return appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
+  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
+    this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
 }

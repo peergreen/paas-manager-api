@@ -23,22 +23,20 @@
  * --------------------------------------------------------------------------
  */
 
-package org.ow2.jonas.jpaas.api;
+package org.ow2.jonas.jpaas.manager.api;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ApplicationVersion implements Serializable {
+public class Application implements Serializable {
 
-  private static final long serialVersionUID = 2013336660087003313L;
+  private static final long serialVersionUID = -4444860554120864032L;
   private String appId;
-  private String versionId;
-  private String versionLabel;
+  private String name;
+  private String description;
   private String requirements;
   private String capabilities;
-  private ArrayList<Deployable> sortedDeployablesList;
-  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
+  private ArrayList<ApplicationVersion> listApplicationVersion;
 
   public String getAppId() {
     return appId;
@@ -48,20 +46,20 @@ public class ApplicationVersion implements Serializable {
     this.appId = appId;
   }
 
-  public String getVersionId() {
-    return versionId;
+  public String getName() {
+    return name;
   }
 
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getVersionLabel() {
-    return versionLabel;
+  public String getDescription() {
+    return description;
   }
 
-  public void setVersionLabel(String versionLabel) {
-    this.versionLabel = versionLabel;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public String getRequirements() {
@@ -80,19 +78,11 @@ public class ApplicationVersion implements Serializable {
     this.capabilities = capabilities;
   }
 
-  public List<Deployable> getSortedDeployablesList() {
-    return sortedDeployablesList;
+  public ArrayList<ApplicationVersion> getListApplicationVersion() {
+    return listApplicationVersion;
   }
 
-  public void setSortedDeployablesList(ArrayList<Deployable> sortedDeployablesList) {
-    this.sortedDeployablesList = sortedDeployablesList;
-  }
-
-  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
-    return listApplicationVersionInstance;
-  }
-
-  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
-    this.listApplicationVersionInstance = listApplicationVersionInstance;
+  public void setListApplicationVersion(ArrayList<ApplicationVersion> listApplicationVersion) {
+    this.listApplicationVersion = listApplicationVersion;
   }
 }
