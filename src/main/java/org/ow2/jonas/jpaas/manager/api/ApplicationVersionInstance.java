@@ -1,5 +1,5 @@
 /**
- * JPaaS Util
+ * JPaaS Manager Api
  * Copyright (C) 2012 Bull S.A.S.
  * Contact: jasmine@ow2.org
  *
@@ -28,25 +28,28 @@ package org.ow2.jonas.jpaas.manager.api;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
-public class ApplicationVersionInstance implements Serializable {
+public class ApplicationVersionInstance implements Serializable{
 
-  private static final long serialVersionUID = -2161092164213063410L;
+  private static final long serialVersionUID = 134774512401344219L;
   private String appId;
   private String versionId;
   private String instanceId;
   private String instanceName;
-  private String requirements;
-  private String capabilities;
-  private ArrayList<Deployable> sortedDeployablesList;
+  private List<String> requirements = new ArrayList<String>() ;
+  private List<Properties> capabilities= new ArrayList<Properties>();
+  private List <Deployable> sortedDeployablesList = new ArrayList <Deployable>();
   private Environment targetEnvId;
-  private String deployableTopologyMapping;
-  private enum stateApp {
-		stop, start;
+  private Map <Deployable,Node> deployableTopologyMapping = new HashMap <Deployable,Node>();
+  private enum stateInstance {
+		stop, start, running, failed;
 	};
-  private stateApp state;
-  private List<URI> urlList;
+  private stateInstance state;
+  private List<URI> urlList = new ArrayList<URI>();
 
 
   public List<URI> getUrlList() {
@@ -81,27 +84,28 @@ public class ApplicationVersionInstance implements Serializable {
     this.instanceName = instanceName;
   }
 
-  public String getRequirements() {
-    return requirements;
+
+  public List<String> getRequirements() {
+	return requirements;
   }
 
-  public void setRequirements(String requirements) {
-    this.requirements = requirements;
+  public void setRequirements(List<String> requirements) {
+	this.requirements = requirements;
   }
 
-  public String getCapabilities() {
-    return capabilities;
+  public List<Properties> getCapabilities() {
+	return capabilities;
   }
 
-  public void setCapabilities(String capabilities) {
-    this.capabilities = capabilities;
+  public void setCapabilities(List<Properties> capabilities) {
+	this.capabilities = capabilities;
   }
 
   public List<Deployable> getSortedDeployablesList() {
     return sortedDeployablesList;
   }
 
-  public void setSortedDeployablesList(ArrayList<Deployable> sortedDeployablesList) {
+  public void setSortedDeployablesList(List<Deployable> sortedDeployablesList) {
     this.sortedDeployablesList = sortedDeployablesList;
   }
 
@@ -113,21 +117,6 @@ public class ApplicationVersionInstance implements Serializable {
     this.targetEnvId = targetEnvId;
   }
 
-  public String getDeployableTopologyMapping() {
-    return deployableTopologyMapping;
-  }
-
-  public void setDeployableTopologyMapping(String deployableTopologyMapping) {
-    this.deployableTopologyMapping = deployableTopologyMapping;
-  }
-
-  public stateApp getState() {
-    return state;
-  }
-
-  public void setState(stateApp state) {
-    this.state = state;
-  }
 
   public String getAppId() {
     return appId;
@@ -135,5 +124,21 @@ public class ApplicationVersionInstance implements Serializable {
 
   public void setAppId(String appId) {
     this.appId = appId;
+  }
+
+  public Map <Deployable,Node> getDeployableTopologyMapping() {
+	return deployableTopologyMapping;
+  }
+
+  public void setDeployableTopologyMapping(Map <Deployable,Node> deployableTopologyMapping) {
+	this.deployableTopologyMapping = deployableTopologyMapping;
+  }
+
+  public stateInstance getState() {
+	return state;
+  }
+
+  public void setState(stateInstance state) {
+	this.state = state;
   }
 }

@@ -1,5 +1,5 @@
 /**
- * JPaaS Util
+ * JPaaS Manager Api
  * Copyright (C) 2012 Bull S.A.S.
  * Contact: jasmine@ow2.org
  *
@@ -27,20 +27,22 @@ package org.ow2.jonas.jpaas.manager.api;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Environment implements Serializable {
+public class Environment  implements Serializable{
 
-  private static final long serialVersionUID = 5058155790404447871L;
 
+  private static final long serialVersionUID = -1344009539198196461L;
   private String envId;
   private String envName;
   private String envDesc;
-  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
+  private List<ApplicationVersionInstance> listApplicationVersionInstance = new  ArrayList<ApplicationVersionInstance>();
 
   private enum stateEnv {
-		running, stop, start;
+		running, stop, start, failed;
 	};
   private stateEnv state;
+  private Topology topology;
 
   public String getEnvId() {
     return envId;
@@ -74,11 +76,20 @@ public class Environment implements Serializable {
     this.state = state;
   }
 
-  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
-    return listApplicationVersionInstance;
+
+  public Topology getTopology() {
+	return topology;
   }
 
-  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
-    this.listApplicationVersionInstance = listApplicationVersionInstance;
+  public void setTopology(Topology topology) {
+	this.topology = topology;
+  }
+
+  public List<ApplicationVersionInstance> getListApplicationVersionInstance() {
+	return listApplicationVersionInstance;
+  }
+
+  public void setListApplicationVersionInstance(List<ApplicationVersionInstance> listApplicationVersionInstance) {
+	this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
 }

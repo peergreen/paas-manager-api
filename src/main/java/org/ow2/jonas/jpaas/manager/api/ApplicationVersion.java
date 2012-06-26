@@ -1,5 +1,5 @@
 /**
- * JPaaS Util
+ * JPaaS Manager Api
  * Copyright (C) 2012 Bull S.A.S.
  * Contact: jasmine@ow2.org
  *
@@ -28,17 +28,18 @@ package org.ow2.jonas.jpaas.manager.api;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
-public class ApplicationVersion implements Serializable {
+public class ApplicationVersion implements Serializable{
 
-  private static final long serialVersionUID = 2013336660087003313L;
+  private static final long serialVersionUID = 5023584890222485816L;
   private String appId;
   private String versionId;
   private String versionLabel;
-  private String requirements;
-  private String capabilities;
-  private ArrayList<Deployable> sortedDeployablesList;
-  private ArrayList<ApplicationVersionInstance> listApplicationVersionInstance;
+  private List<String> requirements = new ArrayList<String>() ;
+  private List<Properties> capabilities= new ArrayList<Properties>();
+  private List<Deployable> sortedDeployablesList =  new ArrayList <Deployable>();;
+  private List<ApplicationVersionInstance> listApplicationVersionInstance = new  ArrayList<ApplicationVersionInstance>();
 
   public String getAppId() {
     return appId;
@@ -64,35 +65,35 @@ public class ApplicationVersion implements Serializable {
     this.versionLabel = versionLabel;
   }
 
-  public String getRequirements() {
-    return requirements;
-  }
+  public List<String> getRequirements() {
+	return requirements;
+}
 
-  public void setRequirements(String requirements) {
-    this.requirements = requirements;
-  }
+  public void setRequirements(List<String> requirements) {
+	this.requirements = requirements;
+}
 
-  public String getCapabilities() {
-    return capabilities;
-  }
+  public List<Properties> getCapabilities() {
+	return capabilities;
+}
 
-  public void setCapabilities(String capabilities) {
-    this.capabilities = capabilities;
-  }
+  public void setCapabilities(List<Properties> capabilities) {
+	this.capabilities = capabilities;
+}
 
   public List<Deployable> getSortedDeployablesList() {
     return sortedDeployablesList;
   }
 
-  public void setSortedDeployablesList(ArrayList<Deployable> sortedDeployablesList) {
+  public void setSortedDeployablesList(List<Deployable> sortedDeployablesList) {
     this.sortedDeployablesList = sortedDeployablesList;
   }
 
-  public ArrayList<ApplicationVersionInstance> getListApplicationVersionInstance() {
+  public List<ApplicationVersionInstance> getListApplicationVersionInstance() {
     return listApplicationVersionInstance;
   }
 
-  public void setListApplicationVersionInstance(ArrayList<ApplicationVersionInstance> listApplicationVersionInstance) {
+  public void setListApplicationVersionInstance(List<ApplicationVersionInstance> listApplicationVersionInstance) {
     this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
 }

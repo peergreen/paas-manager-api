@@ -1,5 +1,5 @@
 /**
- * JPaaS Util
+ * JPaaS Manager Api
  * Copyright (C) 2012 Bull S.A.S.
  * Contact: jasmine@ow2.org
  *
@@ -27,16 +27,18 @@ package org.ow2.jonas.jpaas.manager.api;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
-public class Application implements Serializable {
+public class Application  implements Serializable{
 
-  private static final long serialVersionUID = -4444860554120864032L;
+  private static final long serialVersionUID = -3934908049928752934L;
   private String appId;
   private String name;
   private String description;
-  private String requirements;
-  private String capabilities;
-  private ArrayList<ApplicationVersion> listApplicationVersion;
+  private List<String> requirements = new ArrayList<String> () ;
+  private List<Properties> capabilities= new ArrayList<Properties>();
+  private List<ApplicationVersion> listApplicationVersion = new ArrayList<ApplicationVersion> ();
 
   public String getAppId() {
     return appId;
@@ -62,27 +64,27 @@ public class Application implements Serializable {
     this.description = description;
   }
 
-  public String getRequirements() {
-    return requirements;
+  public List<String> getRequirements() {
+	return requirements;
+}
+
+  public void setRequirements(List<String> requirements) {
+	this.requirements = requirements;
   }
 
-  public void setRequirements(String requirements) {
-    this.requirements = requirements;
+  public List<Properties> getCapabilities() {
+	return capabilities;
   }
 
-  public String getCapabilities() {
-    return capabilities;
+  public void setCapabilities(List<Properties> capabilities) {
+	this.capabilities = capabilities;
   }
 
-  public void setCapabilities(String capabilities) {
-    this.capabilities = capabilities;
-  }
-
-  public ArrayList<ApplicationVersion> getListApplicationVersion() {
+  public List<ApplicationVersion> getListApplicationVersion() {
     return listApplicationVersion;
   }
 
-  public void setListApplicationVersion(ArrayList<ApplicationVersion> listApplicationVersion) {
+  public void setListApplicationVersion(List<ApplicationVersion> listApplicationVersion) {
     this.listApplicationVersion = listApplicationVersion;
   }
 }

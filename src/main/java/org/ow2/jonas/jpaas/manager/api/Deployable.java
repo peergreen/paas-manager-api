@@ -1,5 +1,5 @@
 /**
- * JPaaS Util
+ * JPaaS Manager Api
  * Copyright (C) 2012 Bull S.A.S.
  * Contact: jasmine@ow2.org
  *
@@ -28,15 +28,17 @@ package org.ow2.jonas.jpaas.manager.api;
 import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Deployable implements Serializable {
 
-  private static final long serialVersionUID = 1470072383294447257L;
+  private static final long serialVersionUID = -1185638223191519832L;
   private String deployabledId;
   private String deployableName;
   private String locationUrl;
   private Boolean isUploaded;
-  private String requirements;
+  private List<String> requirements = new ArrayList<String> () ;
   private String slaEnforcement;
 
   public String getDeployabledId() {
@@ -71,14 +73,6 @@ public class Deployable implements Serializable {
     isUploaded = uploaded;
   }
 
-  public String getRequirements() {
-    return requirements;
-  }
-
-  public void setRequirements(String requirements) {
-    this.requirements = requirements;
-  }
-
   public String getSlaEnforcement() {
     return slaEnforcement;
   }
@@ -86,4 +80,12 @@ public class Deployable implements Serializable {
   public void setSlaEnforcement(String slaEnforcement) {
     this.slaEnforcement = slaEnforcement;
   }
+
+public List<String> getRequirements() {
+	return requirements;
+}
+
+public void setRequirements(List<String> requirements) {
+	this.requirements = requirements;
+}
 }
