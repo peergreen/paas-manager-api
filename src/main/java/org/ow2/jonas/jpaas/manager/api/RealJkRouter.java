@@ -36,11 +36,13 @@ public class RealJkRouter implements Serializable{
 
 private static final long serialVersionUID = 6895976827054398348L;
 private String realName;
-private enum stateRouter {
-		stop, start, running, failed;
-	};
-private stateRouter state;
 private List<Properties> capabilities= new ArrayList<Properties>();
+
+private int state;
+public static final int ROUTER_STOPPED = 0;
+public static final int ROUTER_STARTED = 1;
+public static final int ROUTER_RUNNING = 2;
+public static final int ROUTER_FAILED = 3;
 
 public String getRealName() {
 	return realName;
@@ -55,11 +57,12 @@ public List<Properties> getCapabilities() {
 public void setCapabilities(List<Properties> capabilities) {
 	this.capabilities = capabilities;
 }
-public stateRouter getState() {
+public int getState() {
 	return state;
 }
-public void setState(stateRouter state) {
+public void setState(int state) {
 	this.state = state;
 }
+
 
 }

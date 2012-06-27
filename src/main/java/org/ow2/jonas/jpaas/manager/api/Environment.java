@@ -37,12 +37,14 @@ public class Environment  implements Serializable{
   private String envName;
   private String envDesc;
   private List<ApplicationVersionInstance> listApplicationVersionInstance = new  ArrayList<ApplicationVersionInstance>();
-
-  private enum stateEnv {
-		running, stop, start, failed;
-	};
-  private stateEnv state;
   private Topology topology;
+  
+  private int state;
+  public static final int ENVIRONMENT_STOPPED = 0;
+  public static final int ENVIRONMENT_STARTED = 1;
+  public static final int ENVIRONMENT_RUNNING = 2;
+  public static final int ENVIRONMENT_FAILED = 3;
+  
 
   public String getEnvId() {
     return envId;
@@ -68,15 +70,6 @@ public class Environment  implements Serializable{
     this.envDesc = envDesc;
   }
 
-  public stateEnv getState() {
-    return state;
-  }
-
-  public void setState(stateEnv state) {
-    this.state = state;
-  }
-
-
   public Topology getTopology() {
 	return topology;
   }
@@ -92,4 +85,12 @@ public class Environment  implements Serializable{
   public void setListApplicationVersionInstance(List<ApplicationVersionInstance> listApplicationVersionInstance) {
 	this.listApplicationVersionInstance = listApplicationVersionInstance;
   }
+
+public int getState() {
+	return state;
+}
+
+public void setState(int state) {
+	this.state = state;
+}
 }

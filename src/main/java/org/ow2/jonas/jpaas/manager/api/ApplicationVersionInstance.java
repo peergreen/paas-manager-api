@@ -45,11 +45,15 @@ public class ApplicationVersionInstance implements Serializable{
   private List <Deployable> sortedDeployablesList = new ArrayList <Deployable>();
   private Environment targetEnvId;
   private Map <Deployable,Node> deployableTopologyMapping = new HashMap <Deployable,Node>();
-  private enum stateInstance {
-		stop, start, running, failed;
-	};
-  private stateInstance state;
   private List<URI> urlList = new ArrayList<URI>();
+  
+  private int state;
+  public static final int INSTANCE_STOPPED = 0;
+  public static final int INSTANCE_STARTED = 1;
+  public static final int INSTANCE_RUNNING = 2;
+  public static final int INSTANCE_FAILED = 3;
+  
+  
 
 
   public List<URI> getUrlList() {
@@ -134,11 +138,13 @@ public class ApplicationVersionInstance implements Serializable{
 	this.deployableTopologyMapping = deployableTopologyMapping;
   }
 
-  public stateInstance getState() {
+public int getState() {
 	return state;
-  }
+}
 
-  public void setState(stateInstance state) {
+public void setState(int state) {
 	this.state = state;
-  }
+}
+
+
 }

@@ -35,11 +35,13 @@ public class RealJonasContainer implements Serializable{
 
 private static final long serialVersionUID = -4117223587587794540L;
 private String realName;
-private enum stateContainer  {
-		stop, start, running, failed;
-	};
-private stateContainer state;
 private List<Properties> capabilities= new ArrayList<Properties>();
+
+private int state;
+public static final int CONTAINER_STOPPED = 0;
+public static final int CONTAINER_STARTED = 1;
+public static final int CONTAINER_RUNNING = 2;
+public static final int CONTAINER_FAILED = 3;
 
 
 public String getRealName() {
@@ -55,10 +57,11 @@ public List<Properties> getCapabilities() {
 public void setCapabilities(List<Properties> capabilities) {
 	this.capabilities = capabilities;
 }
-public stateContainer getState() {
+public int getState() {
 	return state;
 }
-public void setState(stateContainer state) {
+public void setState(int state) {
 	this.state = state;
 }
+
 }
