@@ -43,7 +43,7 @@ public class ApplicationVersionInstance implements Serializable{
   private List<String> requirements = new ArrayList<String>() ;
   private List<Properties> capabilities= new ArrayList<Properties>();
   private List <Deployable> sortedDeployablesList = new ArrayList <Deployable>();
-  private Environment targetEnvId;
+  private String targetEnvId;
   private Map <Deployable,Node> deployableTopologyMapping = new HashMap <Deployable,Node>();
   private List<URI> urlList = new ArrayList<URI>();
   
@@ -112,16 +112,7 @@ public class ApplicationVersionInstance implements Serializable{
   public void setSortedDeployablesList(List<Deployable> sortedDeployablesList) {
     this.sortedDeployablesList = sortedDeployablesList;
   }
-
-  public Environment getTargetEnvId() {
-    return targetEnvId;
-  }
-
-  public void setTargetEnvId(Environment targetEnvId) {
-    this.targetEnvId = targetEnvId;
-  }
-
-
+  
   public String getAppId() {
     return appId;
   }
@@ -144,6 +135,14 @@ public int getState() {
 
 public void setState(int state) {
 	this.state = state;
+}
+
+public String getTargetEnvId() {
+	return targetEnvId;
+}
+
+public void setTargetEnvId(String targetEnvId) {
+	this.targetEnvId = targetEnvId;
 }
 
 
