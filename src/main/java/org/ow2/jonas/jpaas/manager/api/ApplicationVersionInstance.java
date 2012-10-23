@@ -48,15 +48,28 @@ public class ApplicationVersionInstance implements Serializable{
   private List<URI> urlList = new ArrayList<URI>();
   
   private int state;
+  
+  
   public static final int INSTANCE_STOPPED = 0;
   public static final int INSTANCE_STARTED = 1;
   public static final int INSTANCE_RUNNING = 2;
   public static final int INSTANCE_FAILED = 3;
   
   
+  private String stateStr;
+
+  
 
 
-  public List<URI> getUrlList() {
+  public String getStateStr() {
+	return stateStr;
+}
+
+public void setStateStr(String stateStr) {
+	this.stateStr = stateStr;
+}
+
+public List<URI> getUrlList() {
     return urlList;
   }
 
