@@ -51,8 +51,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
 
@@ -69,11 +69,12 @@
     </plugins>
   </build>
 
-  <scm>
-    <connection>scm:git:git://gitorious.ow2.org/ow2-jasmine/jpaas-manager-api.git</connection>
-    <developerConnection>scm:git:git@gitorious.ow2.org:ow2-jasmine/jpaas-manager-api.git</developerConnection>
-    <url>http://gitorious.ow2.org/ow2-jasmine/jpaas-manager-api.git/trees/master</url>
-  </scm>
+    <scm>
+        <connection>scm:git:https://florent.benoit@forge.peergreen.com/git/git/jpaas/jpaas-manager-api.git</connection>
+        <developerConnection>scm:git:https://florent.benoit@forge.peergreen.com/git/git/jpaas/jpaas-manager-api.git</developerConnection>
+        <url>https://forge.peergreen.com/git/summary/?r=jpaas/jpaas-manager-api.git</url>
+        <tag>HEAD</tag>
+    </scm>
 
 
 </project>
